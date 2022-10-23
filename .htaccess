@@ -1,0 +1,15 @@
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine
+
+RewriteCond %{REQUEST_URI} !^/(web)
+REwriteRule ^assets/(.*)$ /web/assets/$1 [L]
+REwriteRule ^css/(.*)$ /web/css/$1 [L]
+REwriteRule ^js/(.*)$ /web/js/$1 [L]
+REwriteRule ^images/(.*)$ /web/images/$1 [L]
+REwriteRule (.*)$ /web/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /web/index.php
+
